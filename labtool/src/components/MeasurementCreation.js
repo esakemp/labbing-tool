@@ -11,6 +11,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
   const handleSave = () => {
     createMeasurement(objectToSave)
     setObject({ name: '', unit: '', lowerbound: '', upperbound: '' })
+    setModal(false)
   }
 
   const handleChange = (e, attr) => {
@@ -29,6 +30,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
               <Form.Field
                 value={objectToSave.name}
                 width='3'
+                label='Name'
                 placeholder='Name...'
                 control={Input}
                 onChange={(e) => handleChange(e, 'name')}
@@ -36,6 +38,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
               <Form.Field
                 value={objectToSave.unit}
                 width='2'
+                label='Unit'
                 placeholder='Unit...'
                 control={Input}
                 onChange={(e) => handleChange(e, 'unit')}
@@ -43,6 +46,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
               <Form.Field
                 value={objectToSave.lowerbound}
                 width='2'
+                label='L bound'
                 placeholder='Lower bound...'
                 control={Input}
                 onChange={(e) => handleChange(e, 'lowerbound')}
@@ -50,6 +54,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
               <Form.Field
                 value={objectToSave.upperbound}
                 width='2'
+                label='U bound'
                 placeholder='Upper bound...'
                 control={Input}
                 onChange={(e) => handleChange(e, 'upperbound')}
@@ -60,13 +65,16 @@ const MeasurementCreation = ({ createMeasurement }) => {
         <Modal.Actions>
           <Button
             onClick={() => setModal(false)}
-            negative> cancel</Button>
+            negative
+          >
+            cancel
+          </Button>
           <Button
             positive
             onClick={handleSave}
           >
             save
-        </Button>
+          </Button>
         </Modal.Actions>
       </Modal>
     </>
