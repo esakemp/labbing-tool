@@ -66,7 +66,7 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
         </Button>
           <Button
             positive
-            onClick={() => handleUpdate(data.ID)}
+            onClick={() => handleUpdate(data.id)}
           >
             save
         </Button>

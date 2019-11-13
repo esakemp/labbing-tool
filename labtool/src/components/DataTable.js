@@ -3,9 +3,9 @@ import { Table, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import MeasurementUpdate from './MeasurementUpdate'
-import { getMeasurementsAction, deleteMeasurementAction, updateMeasurementAction } from '../reducer/measurementReducer'
+import { getMeasurementsAction, deleteMeasurementAction } from '../reducer/measurementReducer'
 
-const DataTable = ({ getMeasurements, deleteMeasurement, updateMeasurement, measurements }) => {
+const DataTable = ({ getMeasurements, deleteMeasurement, measurements }) => {
 
   useEffect(() => {
     getMeasurements()
@@ -16,15 +16,15 @@ const DataTable = ({ getMeasurements, deleteMeasurement, updateMeasurement, meas
   }
 
   const tableRows = measurements.map(row =>
-    <Table.Row key={row.ID}>
-      <Table.Cell>{row.ID}</Table.Cell>
+    <Table.Row key={row.id}>
+      <Table.Cell>{row.id}</Table.Cell>
       <Table.Cell>{row.name}</Table.Cell>
       <Table.Cell>{row.unit}</Table.Cell>
       <Table.Cell>{row.lowerbound}</Table.Cell>
       <Table.Cell>{row.upperbound}</Table.Cell>
       <Table.Cell>
         <MeasurementUpdate data={row}></MeasurementUpdate>
-        <Icon name='trash alternate' onClick={() => handleDelete(row.ID)} style={{ cursor: 'pointer' }} />
+        <Icon name='trash alternate' onClick={() => handleDelete(row.id)} style={{ cursor: 'pointer' }} />
       </Table.Cell>
     </Table.Row>)
 
@@ -52,6 +52,5 @@ const mapStateToProps = ({ measurements }) => ({
 export default connect(mapStateToProps,
   {
     getMeasurements: getMeasurementsAction,
-    deleteMeasurement: deleteMeasurementAction,
-    updateMeasurement: updateMeasurementAction
+    deleteMeasurement: deleteMeasurementAction
   })(DataTable)

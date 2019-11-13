@@ -11,7 +11,7 @@ const getMeasurements = () => {
 const createMeasurement = (newMeasurement) => {
   return new Promise((resolve, reject) => {
     const id = middleware.getNewId()
-    db.measurements.push({ ID: id, ...newMeasurement })
+    db.measurements.push({ id, ...newMeasurement })
     middleware.writeJSONFile(filename, db)
     resolve(newMeasurement)
   })
@@ -19,7 +19,7 @@ const createMeasurement = (newMeasurement) => {
 
 const updateMeasurement = (id, updatedAttribute) => {
   return new Promise((resolve, reject) => {
-    const index = db.measurements.findIndex(m => m.ID == id)
+    const index = db.measurements.findIndex(m => m.id == id)
     db.measurements[index] = { ...db.measurements[index], ...updatedAttribute }
     middleware.writeJSONFile(filename, db)
     resolve(db.measurements[index])
@@ -28,7 +28,7 @@ const updateMeasurement = (id, updatedAttribute) => {
 
 const deleteMeasurement = (id) => {
   return new Promise((resolve, reject) => {
-    db.measurements = db.measurements.filter(p => Number(p.ID) !== Number(id))
+    db.measurements = db.measurements.filter(p => Number(p.id) !== Number(id))
     middleware.writeJSONFile(filename, db)
     resolve()
   })
