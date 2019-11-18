@@ -28,6 +28,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
           <Form>
             <Form.Group >
               <Form.Field
+                id='name'
                 value={objectToSave.name}
                 width='3'
                 label='Name'
@@ -36,6 +37,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
                 onChange={(e) => handleChange(e, 'name')}
               />
               <Form.Field
+                id='unit'
                 value={objectToSave.unit}
                 width='2'
                 label='Unit'
@@ -44,6 +46,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
                 onChange={(e) => handleChange(e, 'unit')}
               />
               <Form.Field
+                id='lowerbound'
                 value={objectToSave.lowerbound}
                 width='2'
                 label='L bound'
@@ -52,6 +55,7 @@ const MeasurementCreation = ({ createMeasurement }) => {
                 onChange={(e) => handleChange(e, 'lowerbound')}
               />
               <Form.Field
+                id='upperbound'
                 value={objectToSave.upperbound}
                 width='2'
                 label='U bound'

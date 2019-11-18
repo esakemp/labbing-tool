@@ -24,7 +24,7 @@ const DataTable = ({ getMeasurements, deleteMeasurement, measurements }) => {
       <Table.Cell>{row.upperbound}</Table.Cell>
       <Table.Cell>
         <MeasurementUpdate data={row}></MeasurementUpdate>
-        <Icon name='trash alternate' onClick={() => handleDelete(row.id)} style={{ cursor: 'pointer' }} />
+        <Icon id='delete' name='trash alternate' onClick={() => handleDelete(row.id)} style={{ cursor: 'pointer' }} />
       </Table.Cell>
     </Table.Row>)
 

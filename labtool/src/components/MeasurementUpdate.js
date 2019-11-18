@@ -20,13 +20,14 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
 
   return (
     <>
-      <Icon name='edit outline' style={{ cursor: 'pointer' }} onClick={() => setModal(true)} />
+      <Icon id='update' name='edit outline' style={{ cursor: 'pointer' }} onClick={() => setModal(true)} />
       <Modal open={openModal} onClose={() => setModal(false)}>
         <Modal.Header> Create a new measurement</Modal.Header>
         <Modal.Content>
           <Form>
             <Form.Group >
               <Form.Field
+                id='name'
                 label='Name'
                 defaultValue={data.name}
                 width='3'
@@ -34,6 +35,7 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
                 onChange={e => handleChange(e, 'name')}
               />
               <Form.Field
+                id='unit'
                 label='Unit'
                 defaultValue={data.unit}
                 width='2'
@@ -41,6 +43,7 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
                 onChange={e => handleChange(e, 'unit')}
               />
               <Form.Field
+                id='lowerbound'
                 label='L bound'
                 defaultValue={data.lowerbound}
                 width='2'
@@ -48,6 +51,7 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
                 onChange={e => handleChange(e, 'lowerbound')}
               />
               <Form.Field
+                id='upperbound'
                 label='U bound'
                 defaultValue={data.upperbound}
                 width='2'
