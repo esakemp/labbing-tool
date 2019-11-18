@@ -1,11 +1,8 @@
 const fs = require('fs')
-let db = require('../data/indexdb.json')
-const indexfilename = './data/indexdb.json'
+const db = require('../data/db.json')
 
 const getNewId = () => {
-    const newIndex = db.indexes.length + 1
-    db.indexes.push(newIndex)
-    writeJSONFile(indexfilename, db)
+    const newIndex = Number(db.measurements[db.measurements.length - 1].id) + 1
     return newIndex
 }
 
