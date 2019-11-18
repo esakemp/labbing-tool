@@ -2,8 +2,11 @@ const fs = require('fs')
 const db = require('../data/db.json')
 
 const getNewId = () => {
-    const newIndex = Number(db.measurements[db.measurements.length - 1].id) + 1
-    return newIndex
+    if (db.measurements.length > 0) {
+        const newIndex = Number(db.measurements[db.measurements.length - 1].id) + 1
+        return newIndex
+    }
+    return 1
 }
 
 const writeJSONFile = (filename, content) => {
