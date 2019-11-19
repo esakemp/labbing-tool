@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Input, Button, Form, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { func } from 'prop-types'
 
 import { createMeasurementAction } from '../reducer/measurementReducer'
 
@@ -83,6 +84,10 @@ const MeasurementCreation = ({ createMeasurement }) => {
       </Modal>
     </>
   )
+}
+
+MeasurementCreation.propTypes = {
+  createMeasurement: func.isRequired
 }
 
 export default connect(null, { createMeasurement: createMeasurementAction })(MeasurementCreation)

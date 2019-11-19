@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Table, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { arrayOf, shape, func } from 'prop-types'
 
 import MeasurementUpdate from './MeasurementUpdate'
 import { getMeasurementsAction, deleteMeasurementAction } from '../reducer/measurementReducer'
@@ -9,7 +10,7 @@ const DataTable = ({ getMeasurements, deleteMeasurement, measurements }) => {
 
   useEffect(() => {
     getMeasurements()
-  }, [getMeasurements])
+  }, [])
 
   const handleDelete = (id) => {
     deleteMeasurement(id)
@@ -44,13 +45,18 @@ const DataTable = ({ getMeasurements, deleteMeasurement, measurements }) => {
     </Table>)
 }
 
+DataTable.propTypes = {
+  measurements: arrayOf(shape({})).isRequired,
+  getMeasurements: func.isRequired,
+  deleteMeasurement: func.isRequired
+}
+
 const mapStateToProps = ({ measurements }) => ({
-  measurements: measurements.data
+  measurements: measurements.data,
 })
 
 
-export default connect(mapStateToProps,
-  {
-    getMeasurements: getMeasurementsAction,
-    deleteMeasurement: deleteMeasurementAction
-  })(DataTable)
+export default connect(mapStateToProps, {
+  getMeasurements: getMeasurementsAction,
+  deleteMeasurement: deleteMeasurementAction
+})(DataTable)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Modal, Icon, Form, Input, Button } from 'semantic-ui-react'
+import { func, shape } from 'prop-types'
 
 import { updateMeasurementAction } from '../reducer/measurementReducer'
 
@@ -78,6 +79,11 @@ const MeasurementUpdate = ({ updateMeasurement, data }) => {
       </Modal>
     </>
   )
+}
+
+MeasurementUpdate.propTypes = {
+  updateMeasurement: func.isRequired,
+  data: shape({}).isRequired
 }
 
 export default connect(null, { updateMeasurement: updateMeasurementAction })(MeasurementUpdate)
