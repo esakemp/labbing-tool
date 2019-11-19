@@ -1,5 +1,5 @@
 const test = require('ava')
-const Measurement = require('../models/measurement')
+const Measurement = require('../services/measurement')
 
 test.before(async () => {
   const db = await Measurement.getMeasurements()
