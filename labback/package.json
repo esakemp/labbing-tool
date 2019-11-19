@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node_modules/.bin/nodemon --harmony -e js",
-    "test": "ava"
+    "server": "cross-env NODE_ENV=dev node_modules/.bin/nodemon --harmony -e js",
+    "test": "ava",
+    "start:test": "cross-env NODE_ENV=test node index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "ava": "^2.4.0",
+    "cross-env": "^6.0.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4"
   }

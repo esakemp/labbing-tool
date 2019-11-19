@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Measurement = require('../models/measurement')
+const Measurement = require('../services/measurement')
 
 // get all measurements
 router.get('/', async (req, res) => {
